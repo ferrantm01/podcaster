@@ -1,8 +1,22 @@
-function App() {
+import { NavLink, Outlet } from "react-router-dom";
 
+function App() {
   return (
     <>
-      <h1>APP</h1>
+      <header>HEADER</header>
+      <Outlet />
+      <footer>
+        FOOTER
+        <NavLink className={"m-2"} to={"/"}>
+          HOME
+        </NavLink>
+        <NavLink className={"m-2"} to={`/podcast/${3}`}>
+          DETAILS
+        </NavLink>
+        <NavLink className={"m-2"} to={`/podcast/${3}/episode/${2}`}>
+          EPISODE
+        </NavLink>
+      </footer>
     </>
   );
 }
