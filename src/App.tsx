@@ -1,10 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { Header } from "./components/header/header";
 
 function App() {
   return (
     <>
-      <header>HEADER</header>
-      <Outlet />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
       <footer>
         FOOTER
         <NavLink className={"m-2"} to={"/"}>
