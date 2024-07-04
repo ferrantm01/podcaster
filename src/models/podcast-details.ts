@@ -6,6 +6,7 @@ export interface PodcastDetailsRequest {
 export interface PodcastInfo {
     wrapperType: string;
     kind: string;
+    artistId: number;
     collectionId: number;
     trackId: number;
     artistName: string;
@@ -13,6 +14,7 @@ export interface PodcastInfo {
     trackName: string;
     collectionCensoredName: string;
     trackCensoredName: string;
+    artistViewUrl: string;
     collectionViewUrl: string;
     feedUrl: string;
     trackViewUrl: string;
@@ -26,6 +28,7 @@ export interface PodcastInfo {
     collectionExplicitness: string;
     trackExplicitness: string;
     trackCount: number;
+    trackTimeMillis: number;
     country: string;
     currency: string;
     primaryGenreName: string;
@@ -37,28 +40,30 @@ export interface PodcastInfo {
 
 export interface PodcastEpisode {
     country: string;
-    episodeFileExtension: string;
     artworkUrl160: string;
-    collectionViewUrl: string;
     episodeContentType: string;
+    episodeFileExtension: string;
+    episodeUrl: string;
     feedUrl: string;
+    artworkUrl600: string;
     closedCaptioning: string;
     collectionId: number;
     collectionName: string;
-    previewUrl: string;
-    artworkUrl600: string;
+    contentAdvisoryRating: string;
+    trackViewUrl: string;
+    collectionViewUrl: string;
+    trackTimeMillis: number;
     genres: Genre[];
     episodeGuid: string;
     description: string;
-    artistIds: any[];
+    releaseDate: string;
+    previewUrl: string;
     trackId: number;
     trackName: string;
+    artistIds: number[];
     shortDescription: string;
-    episodeUrl: string;
     artworkUrl60: string;
-    contentAdvisoryRating: string;
-    trackViewUrl: string;
-    releaseDate: string;
+    artistViewUrl: string;
     kind: string;
     wrapperType: string;
 }

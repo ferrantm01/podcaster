@@ -21,7 +21,7 @@ export const PodcastsList = () => {
 
   return (
     <>
-      <Row className="m-0 mt-5">
+      <Row className="m-0 mt-2">
         <Col sm={12} md={{ offset: 8, span: 4 }} xl={{ offset: 9, span: 3 }} xxl={{ offset: 10, span: 2 }}>
           <Filter filter={filter} setFilter={setFilter} />
         </Col>
