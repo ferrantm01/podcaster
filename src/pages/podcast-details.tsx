@@ -46,7 +46,7 @@ export const PodcastDetails = () => {
         <DetailsCard
           title={podcast["im:name"].label}
           author={podcast["im:artist"].label}
-          imageSrc={podcast["im:image"][2].label}
+          imageSrc={podcastDetails ? podcastDetails[0].artworkUrl600 : podcast["im:image"][2].label}
           description={podcast.summary.label}
           to={`/podcast/${podcast.id.attributes["im:id"]}`}
         />

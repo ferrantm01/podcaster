@@ -1,6 +1,3 @@
-// https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json
-// https://itunes.apple.com/lookup?id=934552872&media=podcast&entity=podcastEpisode&limit=20
-
 import { PodcastEntry, PodcastResponse } from "../models/podcast";
 import { PodcastDetailsRequest, PodcastEpisode, PodcastInfo } from "../models/podcast-details";
 
