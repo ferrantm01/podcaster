@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Header } from "./components/header/header";
 
 function App() {
@@ -10,15 +10,15 @@ function App() {
       </main>
       <footer>
         FOOTER
-        <NavLink className={"m-2"} to={"/"}>
+        <Link className={"m-2"} to={"/"}>
           HOME
-        </NavLink>
-        <NavLink className={"m-2"} to={`/podcast/${3}`}>
+        </Link>
+        <Link className={"m-2"} to={`/podcast/${3}`}>
           DETAILS
-        </NavLink>
-        <NavLink className={"m-2"} to={`/podcast/${3}/episode/${2}`}>
+        </Link>
+        <Link className={"m-2"} to={`/podcast/${3}/episode/${2}`}>
           EPISODE
-        </NavLink>
+        </Link>
       </footer>
     </>
   );
