@@ -14,7 +14,7 @@ export const Filter: React.FC<FilterProps> = ({ filter, setFilter }) => {
                     type="text"
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
-                    placeholder="Filtrar podcasts..."
+                    placeholder="Filter podcasts..."
                     className="w-100 filter d-inline"
                 />
             </div>

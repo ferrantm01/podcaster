@@ -10,7 +10,7 @@ interface DetailsCardProps {
 
 export const DetailsCard: React.FC<DetailsCardProps> = ({ author, description, imageSrc, title, to }) => {
 
-    const slicedDescription = description.substring(0, description.indexOf('.') + 1);
+    const slicedDescription = description?.substring(0, description.indexOf('.') + 1);
 
     return (
         <div className="details-card-container">

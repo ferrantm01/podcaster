@@ -1,0 +1,31 @@
+.audio-player-container {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 1rem 1rem 2rem 1rem;
+
+    h3 {
+        font-weight: bold;
+        padding: 1rem 0 0 0;
+    }
+
+    .audio-player-description {
+        padding: 1rem 0rem 2rem 0rem;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    audio::-webkit-media-controls-panel {
+        background-color: #464646;
+        border: none;
+    }
+
+    audio::-webkit-media-controls-mute-button,
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-volume-slider {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+}

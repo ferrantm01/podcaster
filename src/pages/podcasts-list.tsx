@@ -30,12 +30,12 @@ export const PodcastsList = () => {
         {
           filteredPodcastList.map((podcast) => {
             return (
-              <Col xs={12} sm={6} md={3} xl={2} className="card-column" key={+podcast.id.attributes["im:id"]}>
+              <Col xs={12} sm={6} md={3} xl={3} className="card-column" key={+podcast.id.attributes["im:id"]}>
                 <Card
                   to={`/podcast/${podcast.id.attributes["im:id"]}`}
                   title={podcast["im:name"].label}
                   author={podcast["im:artist"].label}
-                  imageSrc={podcast["im:image"][0].label} />
+                  imageSrc={podcast["im:image"][2].label} />
               </Col>
             )
           })
