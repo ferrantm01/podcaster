@@ -1,0 +1,45 @@
+.custom-table {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    width: 100%;
+  
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    th {
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
+      text-align: left;
+      font-weight: 600;
+      padding: 1.5rem 1rem 0.5rem 1rem;
+      &:first-child {
+        width: 80%;
+      }
+    }
+  
+    .table-card-link {
+      text-decoration: none;
+    }
+  
+    .even-row {
+      background-color: #f9f9f9;
+    }
+  
+    .odd-row {
+      background-color: #ffffff;
+    }
+  
+    .title-cell {
+      width: 50%;
+    }
+  
+    .date-cell,
+    .duration-cell {
+      text-align: left;
+    }
+  }
+  
