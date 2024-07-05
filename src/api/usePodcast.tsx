@@ -8,7 +8,6 @@ export interface PodcastDetailsCacheData {
 export const usePodcastApi = () => {
 
   const getPodcastList = async (limit: number = 100): Promise<PodcastEntry[]> => {
-
     const storedPodcastList = localStorage.getItem("podcastList");
     const podcastList: PodcastEntry[] = storedPodcastList ? JSON.parse(storedPodcastList) : [];
 
@@ -25,7 +24,7 @@ export const usePodcastApi = () => {
           throw new Error("Network response was not ok " + response.statusText);
         }
         const data: PodcastResponse = await response.json();
-        
+
         localStorage.setItem("podcastList", JSON.stringify(data.feed.entry));
         localStorage.setItem("podcastListTimer", JSON.stringify(currentTime));
 
@@ -52,12 +51,23 @@ export const usePodcastApi = () => {
 
     if (!podcastList[id] || isCacheExpired) {
       try {
-        const response = await fetch(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`);
+
+        const response = import.meta.env.MODE == "production" ?
+          await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`)}`) :
+          await fetch(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`);
+
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
 
-        const data: PodcastDetailsRequest = await response.json();
+        let data: PodcastDetailsRequest;
+
+        if (import.meta.env.MODE === "production") {
+          const allOriginsData = await response.json();
+          data = JSON.parse(allOriginsData.contents);
+        } else {
+          data = await response.json();
+        }
         let newPodcastList: PodcastDetailsCacheData;
 
         if (isCacheExpired) {
