@@ -36,7 +36,7 @@ export const EpisodeDetails = () => {
 
   return (
     <Row className="m-0 mt-3">
-      <Col md={3} xl={3} xxl={3}>
+      <Col md={3} xl={3} xxl={3} className="mb-3">
         <DetailsCard
           title={podcast["im:name"].label}
           author={podcast["im:artist"].label}
