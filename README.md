@@ -26,10 +26,3 @@ npm run build
 Para previsualizar la aplicación en modo producción, utiliza el siguiente comando:
 
 npm run preview
-
-
-## 
-
-He subido mi proyecto 
-
-##  
