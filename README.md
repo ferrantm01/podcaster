@@ -2,7 +2,7 @@
 
 Puedes ver la aplicación desplegada en Vercel en la siguiente URL:
 
-https://podcaster-flame.vercel.app/
+https://podcaster-tm--ten.vercel.app/
 
 ## Instalación
 
