@@ -21,6 +21,7 @@ export const usePodcastApi = () => {
   };
 
   const getPodcastList = async (limit: number = 100): Promise<PodcastEntry[]> => {
+    setLoadingWithDelay(true);
     const storedPodcastList = localStorage.getItem("podcastList");
     const podcastList: PodcastEntry[] = storedPodcastList ? JSON.parse(storedPodcastList) : [];
 
@@ -32,7 +33,6 @@ export const usePodcastApi = () => {
 
     // Si la lista de podcasts está vacía o han pasado más de 24 horas, se vuelve a lanzar la petición y se guardan los datos relevantes en el localStorage.
     if (podcastList.length === 0 || isCacheExpired) {
-      setLoadingWithDelay(true);
       try {
         const response = await fetch(`https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`);
         if (!response.ok) {
@@ -57,6 +57,7 @@ export const usePodcastApi = () => {
   };
 
   const getPodcastDetails = async (id: number, limit: number = 20): Promise<[PodcastInfo, ...PodcastEpisode[]]> => {
+    setLoadingWithDelay(true);
     const storedPodcastDetails = localStorage.getItem("podcastDetails");
     const podcastList: PodcastDetailsCacheData = storedPodcastDetails ? JSON.parse(storedPodcastDetails) : [];
 
@@ -68,7 +69,6 @@ export const usePodcastApi = () => {
 
     // Si no se encuentra el podcast o han pasado más de 24 horas, se vuelve a lanzar la petición y se guardan los datos relevantes en el localStorage.
     if (!podcastList[id] || isCacheExpired) {
-      setLoadingWithDelay(true);
       try {
         const response = import.meta.env.MODE === "production" ?
           await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`)}`) :
