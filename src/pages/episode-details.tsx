@@ -9,22 +9,20 @@ import { Episode } from "../components/audio-player/audio-player";
 
 export const EpisodeDetails = () => {
   let { podcastId, episodeId } = useParams();
-
   const { getPodcastDetails } = usePodcastApi();
   const [podcastDetails, setPodcastDetails] = useState<[PodcastInfo, ...PodcastEpisode[]] | undefined>();
   const [episodeDetails, setEpisodeDetails] = useState<PodcastEpisode | undefined>();
-
   const storedPodcastList: PodcastEntry[] = localStorage.getItem("podcastList") ? JSON.parse(localStorage.getItem("podcastList") as string) : [];
   const podcast = podcastId ? storedPodcastList.find(podcast => podcast.id.attributes["im:id"] === podcastId) : undefined;
 
-  // Llamamos a la API para obtener los detalles del podcast si hay un podcastId válido
+  // Llamamos a la API para obtener los detalles del podcast si hay un podcastId válido.
   useEffect(() => {
     if (podcastId) {
       getPodcastDetails(+podcastId).then(data => setPodcastDetails(data));
     }
   }, [podcastId]);
 
-  // Establecemos los detalles del episodio cuando cambian los detalles del podcast
+  // Establecemos los detalles del episodio cuando cambian los detalles del podcast.
   useEffect(() => {
     if (podcastDetails && episodeId) {
       const foundEpisode = podcastDetails.find(episode => episode.trackId === +episodeId);

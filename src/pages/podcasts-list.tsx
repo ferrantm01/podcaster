@@ -10,10 +10,12 @@ export const PodcastsList = () => {
   const [filter, setFilter] = useState("");
   const { getPodcastList } = usePodcastApi();
 
+  // Llamamos a la API para obtener la lista de los podcasts.
   useEffect(() => {
     getPodcastList().then(list => setPodcastList(list));
   }, [])
 
+  // Filtramos la lista de podcasts según el valor del filtro, buscando coincidencias en el nombre y el artista.
   const filteredPodcastList = podcastList.filter(podcast =>
     podcast["im:name"].label.toLowerCase().includes(filter.toLowerCase()) ||
     podcast["im:artist"].label.toLowerCase().includes(filter.toLowerCase())

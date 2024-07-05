@@ -10,6 +10,7 @@ interface DetailsCardProps {
 
 export const DetailsCard: React.FC<DetailsCardProps> = ({ author, description, imageSrc, title, to }) => {
 
+    // Obtiene una porción de la descripción, desde el inicio hasta el primer punto encontrado, incluyendo el punto.
     const slicedDescription = description?.substring(0, description.indexOf('.') + 1);
 
     return (
