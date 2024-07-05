@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { PodcastsList } from "./pages/podcasts-list.tsx";
 import { PodcastDetails } from "./pages/podcast-details.tsx";
 import { EpisodeDetails } from "./pages/episode-details.tsx";
+import { LoadingProvider } from "./context/loading-context.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <LoadingProvider>
+      <RouterProvider router={router} />
+    </LoadingProvider>
   </React.StrictMode>
 );

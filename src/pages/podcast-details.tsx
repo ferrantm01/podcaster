@@ -11,14 +11,13 @@ import { formatReleaseDate, formatTrackTime } from "../utilities/utilities";
 
 export const PodcastDetails = () => {
   let { podcastId } = useParams();
-
   const { getPodcastDetails } = usePodcastApi();
   const [podcastDetails, setPodcastDetails] = useState<[PodcastInfo, ...PodcastEpisode[]]>();
-
   const storedPodcastList: PodcastEntry[] = localStorage.getItem("podcastList") ? JSON.parse(localStorage.getItem("podcastList") as string) : [];
   const podcast: PodcastEntry | undefined = podcastId ? storedPodcastList.filter(podcast => podcast.id.attributes["im:id"] === podcastId)[0] : undefined;
   const episodeCounter = podcastDetails ? podcastDetails.length - 1 : 0;
 
+  // Llamamos a la API para obtener los detalles del podcast si hay un podcastId válido.
   useEffect(() => {
     if (podcastId) getPodcastDetails(+podcastId).then(data => setPodcastDetails(data));
   }, [])
@@ -29,6 +28,7 @@ export const PodcastDetails = () => {
     { key: 'duration', header: 'Duration', render: (item: any) => item.duration },
   ];
 
+  //Eliminamos el primer elemento del array, ya que no es un podcast, y devolvemos un array con los objetos relevantes.
   const data = podcastDetails ?
     podcastDetails.slice(1).map(({ trackName, trackId, releaseDate, trackTimeMillis }) => ({
       title: trackName,
